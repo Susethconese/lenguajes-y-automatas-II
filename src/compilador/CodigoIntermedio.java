@@ -50,7 +50,16 @@ public class CodigoIntermedio {
 
     
 
-    
+    private void obtenerExpresiones() {
+        listaExpresiones = new ArrayList<>();
+        for (Simbolo simbolo : listaSimbolos) {
+            String expresion = simbolo.getValor();
+            // Cuádruplos: Expresión de 4 elementos
+            if (expresion.split("\\s+").length >= 3) {
+                listaExpresiones.add(new Expresion(simbolo.getIdentificador(), expresion));
+            }
+        }
+    }
     private String generarTmp() {
         return new Random().nextFloat() >= 0.5 ? "Kenia" : "Esthepanie";
     }
