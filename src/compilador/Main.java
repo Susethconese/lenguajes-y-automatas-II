@@ -8,7 +8,7 @@ import javax.swing.plaf.nimbus.NimbusLookAndFeel;
 
 /**
  *
- * 
+ * Main principal
  */
 public class Main {
 

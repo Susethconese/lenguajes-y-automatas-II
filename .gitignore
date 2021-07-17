@@ -1,4 +1,11 @@
+
 /nbproject/private/
 /build/
 /dist/
 codigo.txt
+
+codigo.txt
+build/built-jar.properties
+build/classes/compilador/CodigoIntermedio.class
+build/classes/views/CompiladorFrame.class
+dist/Compilador.jar
