@@ -60,10 +60,60 @@ public class CodigoIntermedio {
             }
         }
     }
+    
+    private void generarCuadruplos() {
+        for (Expresion ex : listaExpresiones) {
+            cabeceraImpresion(ex);
+            listaCuadruplos = new ArrayList<>();
+            ArrayList<String> elementos = new ArrayList<>(Arrays.asList(ex.expresion.split("\\s+")));
+            int contadorTmp = 1;
+            for (int i = 0; i < elementos.size(); i++) {
+                if (elementos.get(i).equals("/") || elementos.get(i).equals("*")) {
+                    generarCuadruplo(elementos, i, contadorTmp);
+                    contadorTmp++;
+                    i = -1;
+                } else if (!elementos.contains("/") && !elementos.contains("*")  && (elementos.get(i).equals("+") || elementos.get(i).equals("-"))) {
+                    generarCuadruplo(elementos, i, contadorTmp);
+                    contadorTmp++;
+                    i = -1;
+                    
+                } else if (elementos.size() == 1) {
+                    listaCuadruplos.add(new Cuadruplo(
+                            ex.id + " :=",  // Operador
+                            elementos.get(i),       // Operador1
+                            "",            // Operador2
+                            ""              // Resultado
+                    ));
+                }
+               
+            }
+            listaCuadruplos.add(new Cuadruplo(
+                            "=" ,  // Operador
+                            listaCuadruplos.get(listaCuadruplos.size()-1).toString(),       // Operador1
+                            "",            // Operador2
+                            ex.id             // Resultado
+                    ));
+            cuerpoImpresion(ex);
+        }
+    }
+    
     private String generarTmp() {
         return new Random().nextFloat() >= 0.5 ? "Kenia" : "Esthepanie";
     }
 
+    private void generarCuadruplo(ArrayList<String> elementos, int i, int contador) {
+        String res = generarTmp() + contador;
+        listaCuadruplos.add(new Cuadruplo(
+                elementos.get(i),       
+                elementos.get(i - 1),   
+                elementos.get(i + 1),   
+                res// Resultado
+        ));
+        elementos.set(i, res);
+        elementos.remove(i + 1);
+        elementos.remove(i - 1);
+
+    }
     
     private void cabeceraImpresion(Expresion ex){
         System.out.println("---------- Expresión -----------------------------------------------------");
