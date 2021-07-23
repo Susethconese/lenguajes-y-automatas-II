@@ -157,6 +157,9 @@ public class CompiladorFrame extends JFrame implements ActionListener {
         // Mostramos la tabla de símbolos
         TablaSimbolosView tablaSimbolosView = new TablaSimbolosView(tablaSimbolos.getListaSimbolos());
         tablaSimbolosView.setVisible(true);
+        //mostramos el codigo objeto
+        codigoObjetoFrame codigoObjetoFrame= new codigoObjetoFrame();
+        codigoObjetoFrame.setVisible(true);
         
         // Imprimir cuadruplos
         new CodigoIntermedio(tablaSimbolos.getListaSimbolos());
