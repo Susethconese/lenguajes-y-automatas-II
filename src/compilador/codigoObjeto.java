@@ -9,6 +9,7 @@ package compilador;
  *
  * @author suset
  */
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Random;
@@ -131,6 +132,7 @@ public class codigoObjeto {
 
            //System.out.print(elementos);
            cuerpoImpresion(ex);  
+           finalImpresion(ex);
         }
         
     }
@@ -160,14 +162,20 @@ public class codigoObjeto {
         }
     
     private void cabeceraImpresion(Expresion ex){
-        System.out.println("---------- Expresión -----------------------------------------------------");
-        System.out.println(ex.id + " = " + ex.expresion);
         System.out.println("--------------------------------------------------------------------------");
         System.out.printf("%15s %15s %15s\n", "", ".MODEL", "Small");
         System.out.printf("%15s %15s %15s\n", "", ".STACK", "");
         System.out.printf("%15s %15s %15s\n", "", ".DATA",  "");
         System.out.println("--------------------------------------------------------------------------");
     }
+     private void finalImpresion(Expresion ex){
+        System.out.printf("%15s %15s %15s\n", "MOV", "AH,", "4CH");
+        System.out.printf("%15s %15s %15s\n", "INT", "21H", "");
+        System.out.printf("%15s %15s %15s\n", "MAIN", "ENDP", "");
+        System.out.printf("%15s %15s %15s\n", "END", "MAIN",  "");
+        System.out.println("--------------------------------------------------------------------------");
+    }
+
 
     private void cuerpoImpresion(Expresion ex) {
         for (CodigoObjeto CodObjeto : CodObj) {

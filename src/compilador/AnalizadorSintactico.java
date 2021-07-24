@@ -55,9 +55,11 @@ public class AnalizadorSintactico {
         while (tipo == TipoToken.PUBLICO || tipo == TipoToken.PRIVADO) {
             consumir(tipo);
             declararTipo();
+            
         }
         while (tipo == TipoToken.ENTERO || tipo == TipoToken.BOOLEANO|| tipo == TipoToken.DOUBLE|| tipo == TipoToken.STRING) {
             declararTipo();
+            
         }
         if (this.tipo == TipoToken.WHILEX || this.tipo == TipoToken.IFX || this.tipo == TipoToken.ENTERO || this.tipo == TipoToken.BOOLEANO || this.tipo == TipoToken.DOUBLE || this.tipo == TipoToken.STRING ) {
             status();

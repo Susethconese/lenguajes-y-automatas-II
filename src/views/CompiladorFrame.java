@@ -2,11 +2,9 @@ package views;
 
 import compilador.AnalizadorLexico;
 import compilador.AnalizadorSemantico;
-import compilador.CodigoIntermedio;
 import compilador.TablaSimbolos;
-import compilador.codigoObjeto;
 import views.TablaSimbolosView;
-
+import compilador.codigoObjeto;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.GradientPaint;
@@ -163,7 +161,7 @@ public class CompiladorFrame extends JFrame implements ActionListener {
         codigoObjetoFrame.setVisible(true);
         
         // Imprimir cuadruplos
-        new CodigoIntermedio(tablaSimbolos.getListaSimbolos());
+        //new CodigoIntermedio(tablaSimbolos.getListaSimbolos());
         new codigoObjeto(tablaSimbolos.getListaSimbolos());
 
     }

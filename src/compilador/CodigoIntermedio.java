@@ -11,7 +11,7 @@ package compilador;
  */
 import utils.Cuadruplo;
 import utils.Simbolo;
-
+import views.codigoObjetoFrame;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Random;
