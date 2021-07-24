@@ -4,6 +4,7 @@ import compilador.AnalizadorLexico;
 import compilador.AnalizadorSemantico;
 import compilador.CodigoIntermedio;
 import compilador.TablaSimbolos;
+import compilador.codigoObjeto;
 import views.TablaSimbolosView;
 
 import java.awt.Color;
@@ -163,7 +164,7 @@ public class CompiladorFrame extends JFrame implements ActionListener {
         
         // Imprimir cuadruplos
         new CodigoIntermedio(tablaSimbolos.getListaSimbolos());
-        
+        new codigoObjeto(tablaSimbolos.getListaSimbolos());
 
     }
 
